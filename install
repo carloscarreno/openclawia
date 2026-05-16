@@ -1,0 +1,118 @@
+# NODE
+# Ref. https://nodejs.org/es/download
+# Descarga e instala nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+# en lugar de reiniciar la shell
+\. "$HOME/.nvm/nvm.sh"
+# Descarga e instala Node.js:
+nvm install 24
+# Verifica la versión de Node.js:
+node -v # Debería mostrar "v24.15.0".
+# Verifica versión de npm:
+npm -v # Debería mostrar "11.12.1".
+
+#OLLAMA
+
+curl -fsSL https://ollama.com/install.sh | sh
+# nota
+#>>> Install complete. Run "ollama" from the command line.
+#WARNING: No NVIDIA/AMD GPU detected. Ollama will run in CPU-only mode.
+
+
+ollama --version
+
+sudo systemctl enable ollama
+
+sudo systemctl start ollama
+
+sudo systemctl status ollama
+
+# Prueba de ollama
+curl http://localhost:11434/api/tags
+
+ollama pull llama3
+ollama pull phi4-mini
+ollama pull gemma3:2b
+ollama pull qwen2.5:3b
+
+
+ollama pull mistral
+ollama pull qwen3
+
+ollama list
+
+ollama run llama3
+
+# pregunta explicar kubernetes
+
+/bye
+
+# Prueba la API
+curl http://localhost:11434/api/generate -d '{
+  "model": "llama3",
+  "prompt": "Explica qué es Kubernetes"
+}'
+
+# Remoto
+
+sudo systemctl edit ollama
+
+[Service]
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+
+sudo systemctl daemon-reload
+sudo systemctl restart ollama
+
+ss -tulpn | grep 11434
+
+# Firewall
+
+sudo ufw allow 11434/tcp
+
+nvidia-smi
+
+ollama ps
+
+# Recomendacion
+RAM	    Modelo recomendado
+4 GB	gemma3:2b
+8 GB	qwen2.5:3b
+16 GB	llama3
+32+ GB	qwen3 / mistral-large
+
+# logs
+journalctl -u ollama -f
+
+# Actualizar
+curl -fsSL https://ollama.com/install.sh | sh
+
+# desinstalar
+sudo systemctl stop ollama
+sudo rm -f /usr/local/bin/ollama
+sudo rm -rf /usr/share/ollama
+sudo rm -rf ~/.ollama
+
+systemctl status ollama
+
+# OPENCLAW
+# Ref. https://docs.openclaw.ai/start/getting-started
+
+curl -fsSL https://openclaw.ai/install.sh | bash
+
+openclaw onboard --install-daemon
+
+openclaw gateway status
+
+openclaw dashboard
+
+
+
+
+
+
+
+
+
+
+
+
