@@ -127,6 +127,14 @@ ollama pul phi3:mini
 # Ver los modelos
 ollama list
 
+# Brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sudo chown -R macmini /usr/local/var/homebrew
+/usr/local/bin/brew update --force --quiet
+echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zshrc
+eval "$(/usr/local/bin/brew shellenv)"
+brew --version
+
 
 
 
