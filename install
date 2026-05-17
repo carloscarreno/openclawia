@@ -114,10 +114,18 @@ Descomprime el archivo Ollama-darwin.zip
 
 Mueve o Copia el archivo Ollama a Aplications
 
+open /Applications/Ollama.app
+
+sudo ln -sf /Applications/Ollama.app/Contents/Resources/ollama /usr/local/bin/ollama
 
 
+ollama --version  
 
+# Descargar modelos
+ollama pul phi3:mini
 
+# Ver los modelos
+ollama list
 
 
 
