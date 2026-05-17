@@ -105,6 +105,14 @@ openclaw gateway status
 
 openclaw dashboard
 
+# MAC MINI M2 2014
+Descarga
+https://github.com/ollama/ollama/releases/tag/v0.3.13
+Descarga el archivo: Ollama-darwin.zip
+
+Descomprime el archivo Ollama-darwin.zip
+
+Mueve o Copia el archivo Ollama a Aplications
 
 
 
